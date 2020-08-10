@@ -1,5 +1,6 @@
 package com.qf304.blog.web;
 
+import com.qf304.blog.NotFoundException;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
@@ -8,7 +9,11 @@ public class IndexController {
 
     @GetMapping("/")
     public String index1(){
-        int i = 9/0;
+//        int i = 9/0;
+        String blog = null;
+        if(blog == null){
+            throw new NotFoundException("博客不存在！");
+        }
         return "index";
     }
 }
